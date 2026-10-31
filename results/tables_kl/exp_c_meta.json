@@ -1,0 +1,8 @@
+{
+  "n_transactions_total": 60000,
+  "n_train": 42013,
+  "n_test": 11929,
+  "true_valid_rate": 0.9798166666666667,
+  "flag_rate": 0.20933333333333334,
+  "note": "Per action latency values are simulator assumptions, not hardware measurements."
+}

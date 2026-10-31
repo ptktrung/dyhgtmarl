@@ -1,0 +1,12 @@
+{
+  "note": "Linear softmax policy trained by REINFORCE with a learned value baseline. Same constrained process, state information, actions, reward, dual ascent, split and seeds as Experiment C.",
+  "n_features": 22,
+  "epochs": 40,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ]
+}
