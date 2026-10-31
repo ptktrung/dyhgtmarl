@@ -1,0 +1,21 @@
+# conda env create -f environment.yml && conda activate dyhgt-marl
+# The pip list in requirements.txt is the same set and either route works.
+name: dyhgt-marl
+channels: [conda-forge]
+dependencies:
+  - python=3.12
+  - numpy>=2.0
+  - pandas>=2.2
+  - scipy>=1.13
+  - scikit-learn>=1.5
+  - matplotlib>=3.8
+  - networkx>=3.2
+  - pyyaml>=6.0
+  - tabulate>=0.9
+  - h5py>=3.11          # reads metr-la.h5 for the external validation
+  - lxml>=5.2           # OOXML editing in the document builders
+  - pip
+  - pip:
+      - torch>=2.2      # CPU build is sufficient, no GPU is used anywhere
+      - python-docx>=1.1
+      - pypdf>=4.2      # checks the rendered reference PDF
