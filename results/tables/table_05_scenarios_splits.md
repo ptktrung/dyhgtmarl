@@ -1,0 +1,19 @@
+**Table V. Scenario definitions, generator parameters and chronological splits.**
+
+| Scenario                   | Parameters                                                        | Realised size                                           |
+|:---------------------------|:------------------------------------------------------------------|:--------------------------------------------------------|
+| S1 clean baseline          | all steps outside any injected event window                       | 76601 nominal node steps                                |
+| S2 independent missingness | rates [0.0, 0.05, 0.1, 0.2, 0.3, 0.4]                             | six MCAR masks stored separately, applied at evaluation |
+| S3 signal loss             | signal forced to -120 dBm                                         | 1277 node steps                                         |
+| S4 latency spike           | 200 to 2000 ms added                                              | 1186 node steps                                         |
+| S5 monotonic drift         | accumulating, recovery factor 0.985                               | 1185 node steps                                         |
+| S6 graph cascades          | p0 = 0.55, decay tau = 3.0 steps, 14 roots per centrality stratum | 42 cascade events                                       |
+| S7 gateway outages         | 8 scheduled outages                                               | 391 node steps missing                                  |
+| S8 peak hour congestion    | inherited from the supplied traffic matrix                        | present in every day of the series                      |
+| S9 peripheral MNAR         | logistic in own signal, slope 0.055                               | 616 node steps missing                                  |
+| S10 topology change        | windows [[1600, 1840], [2380, 2500]], 6 edges each                | 1799 node steps missing                                 |
+| S11 distribution shift     | scale 1.12, extra noise 1.1                                       | from step 2592 to the end                               |
+| S12 targeted perturbation  | independent masks applied to selected nodes at evaluation         | used in the robustness sweep                            |
+| Split train                | chronological, steps 0 to 2014                                    | 2015 steps                                              |
+| Split validation           | chronological, steps 2015 to 2302                                 | 288 steps                                               |
+| Split test                 | chronological, steps 2303 to 2879                                 | 577 steps                                               |

@@ -1,0 +1,10 @@
+**Table XII. Tabular action value policies against linear softmax policies trained by REINFORCE with a learned value baseline, on the same constrained process, state information, reward, dual ascent, split and seeds.**
+
+| policy                            | revenue_recovered_pct   | decision_error_rate   | false_accept_rate   | abstention_rate   | review_workload_pct   | equal_opportunity_gap   | demographic_parity_gap   |   n_seeds |
+|:----------------------------------|:------------------------|:----------------------|:--------------------|:------------------|:----------------------|:------------------------|:-------------------------|----------:|
+| pg_centralized_constrained        | 93.8014 +/- 0.0000      | 0.0211 +/- 0.0000     | 0.0211 +/- 0.0000   | 0.0000 +/- 0.0000 | 0.0000 +/- 0.0000     | 0.0000 +/- 0.0000       | 0.0000 +/- 0.0000        |         5 |
+| pg_decentralized_constrained      | 93.8014 +/- 0.0000      | 0.0211 +/- 0.0000     | 0.0211 +/- 0.0000   | 0.0000 +/- 0.0000 | 0.0000 +/- 0.0000     | 0.0000 +/- 0.0000       | 0.0000 +/- 0.0000        |         5 |
+| pg_decentralized_utility_max      | 93.8014 +/- 0.0000      | 0.0211 +/- 0.0000     | 0.0211 +/- 0.0000   | 0.0000 +/- 0.0000 | 0.0000 +/- 0.0000     | 0.0000 +/- 0.0000       | 0.0000 +/- 0.0000        |         5 |
+| tabular_centralized_constrained   | 89.0435 +/- 0.6473      | 0.0260 +/- 0.0085     | 0.0138 +/- 0.0038   | 0.1246 +/- 0.0439 | 12.4598 +/- 4.3947    | 0.0006 +/- 0.0006       | 0.0027 +/- 0.0019        |         3 |
+| tabular_decentralized_constrained | 88.9572 +/- 1.7580      | 0.0270 +/- 0.0031     | 0.0149 +/- 0.0017   | 0.1352 +/- 0.0735 | 13.5245 +/- 7.3494    | 0.0013 +/- 0.0017       | 0.0036 +/- 0.0019        |         3 |
+| tabular_decentralized_utility_max | 86.7872 +/- 2.5918      | 0.0331 +/- 0.0090     | 0.0135 +/- 0.0016   | 0.1808 +/- 0.0897 | 18.0764 +/- 8.9710    | 0.0006 +/- 0.0005       | 0.0050 +/- 0.0005        |         3 |

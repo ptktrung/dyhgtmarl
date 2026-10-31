@@ -1,0 +1,9 @@
+**Table II. Source datasets and the integrated benchmark, with the limitation that matters most for each.**
+
+| Dataset                                   |   Rows |   Columns | Temporal span                               | Positive or fault rate                                       | Known issue                                                                            |
+|:------------------------------------------|-------:|----------:|:--------------------------------------------|:-------------------------------------------------------------|:---------------------------------------------------------------------------------------|
+| hcmc_traffic_data.csv (supplied)          |    720 |        28 | 720 hourly steps, 30 days                   | not applicable                                               | 28 entries below one minute, 13 of them negative. Mean pairwise node correlation 0.909 |
+| HCMC_IoT_Graph_Sensor_Data.csv (supplied) | 100000 |        11 | 9 days 7 hours                              | 0.0359                                                       | cascade state is carried by the preceding row rather than by a graph neighbour         |
+| hcmc_mixed_mobility_data.csv (supplied)   |  10000 |         8 | 13 hours                                    | 0.1102                                                       | no node identity and no label for whether a flagged fare was genuinely owed            |
+| integrated_benchmark.csv (this work)      |  80640 |        30 | 2880 steps of 15 minutes, 30 days, 28 nodes | 0.0501                                                       | fully synthetic. Travel time is interpolated from the supplied hourly matrix           |
+| transactions.csv (this work)              |  60000 |        14 | aligned to the 2880 step grid               | flag rate and latent validity rate given in the dataset card | latent validity is a modelling assumption, not an observed label                       |

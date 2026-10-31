@@ -1,0 +1,5 @@
+mean_delay_steps,median_delay_steps,detected,undetected,model,threshold,n_events,step_minutes
+0.05660377358490566,0.0,53,0,logistic_regression,0.5,53,15
+0.03773584905660377,0.0,53,0,hist_gradient_boosting,0.5,53,15
+0.6346153846153846,0.0,52,1,random_forest_graph_features,0.5,53,15
+2.088235294117647,1.0,34,19,dyhgt_marl,0.5,53,15

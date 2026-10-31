@@ -1,0 +1,16 @@
+Quantity,Ho Chi Minh City,Kuala Lumpur
+"CRPS change, 0 to 40 percent missing, climatology",+95.3 percent,+39.2 percent
+"CRPS change, 0 to 40 percent missing, proposed model",+4.3 percent,+7.4 percent
+Calibration error (scale free),0.023 +/- 0.015,0.041 +/- 0.019
+"Fault F1, multilayer perceptron",0.988 +/- 0.001,0.985 +/- 0.004
+"Fault F1, proposed model",0.658 +/- 0.059,0.691 +/- 0.031
+Forecast CRPS (within cohort only),1.650 +/- 0.023,0.427 +/- 0.021
+"Forecast MAE, minutes (within cohort only)",2.302 +/- 0.039,0.602 +/- 0.028
+"Forecast MAPE, percent (scale free)",13.636 +/- 0.676,9.081 +/- 0.277
+Interval coverage at 95 percent (scale free),0.952 +/- 0.005,0.953 +/- 0.009
+"Learned policy, abstention rate",0.135,0.000
+"Learned policy, equal opportunity gap",0.0013,0.0074
+"Learned policy, revenue recovered percent",88.96,91.37
+"Legacy rule, equal opportunity gap",0.1523,0.2098
+"Legacy rule, revenue recovered percent",80.99,75.05
+Penalty settings producing a mixed policy,none,40

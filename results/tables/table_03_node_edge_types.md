@@ -1,0 +1,16 @@
+**Table III. Node types, relation types and dynamic features of the benchmark graph. Counts are node instances for node types and directed edge instances for relation types. Relations r1, r3, r4 and r7 carry encoder message passing; r2, r5 and r6 are the operational provenance and authority metadata consumed by the decision layer.**
+
+| Element       | Name                     | Count              | Temporal status   | Provenance   | Definition                                                                                                   |
+|:--------------|:-------------------------|:-------------------|:------------------|:-------------|:-------------------------------------------------------------------------------------------------------------|
+| node type     | transit                  | 28                 | static membership | simulated    |                                                                                                              |
+| node type     | sensor_validator         | 28                 | static membership | simulated    |                                                                                                              |
+| node type     | gateway                  | 6                  | static membership | simulated    |                                                                                                              |
+| node type     | clearing_agent           | 4                  | static membership | simulated    |                                                                                                              |
+| node type     | maintenance_agent        | 3                  | static membership | simulated    |                                                                                                              |
+| relation type | r1_travel_connects       | 154                | dynamic           | simulated    | Ring plus chord topology from the supplied traffic generator. Edges are removed during the closure window.   |
+| relation type | r2_senses                | 28                 | static            | simulated    | One validator per transit node, fixed by the node mapping assumption.                                        |
+| relation type | r3_comm_depends          | 28                 | dynamic           | simulated    | Backhaul dependency. The edge is suppressed while the gateway is in an outage state.                         |
+| relation type | r4_shares_gateway        | 52                 | static            | inferred     | Derived from the gateway assignment, encodes correlated outage risk.                                         |
+| relation type | r5_provenance            | 28                 | static            | simulated    | Each record carries a ProvenanceID naming the validator and the clearing agent that settled it.              |
+| relation type | r6_operational_authority | 28                 | static            | simulated    | Which maintenance agent may isolate or repair a node.                                                        |
+| relation type | r7_functional_similarity | computed per split | dynamic           | inferred     | Top-k correlation of observed travel time on the training split only, recomputed per split to avoid leakage. |
