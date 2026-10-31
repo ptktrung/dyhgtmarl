@@ -1,0 +1,98 @@
+# DyHGT-MARL benchmark configuration. Every number here is a modelling
+# assumption of the synthetic study, not a measured municipal parameter.
+seed: 42
+model_seeds: [0, 1, 2, 3, 4]
+
+grid:
+  hours: 720
+  steps_per_hour: 4      # 15 minute resolution, T = 2880
+  n_nodes: 28
+  start: "2025-01-01 00:00:00"
+
+graph:
+  topology_seed: 42
+  laplacian_k: 8
+  functional_similarity_k: 3
+
+scenarios:
+  base_fault_prob: 0.0015
+  weak_signal_bonus: 0.010
+  fault_len_steps: [2, 10]
+  cascade_base_prob: 0.55
+  cascade_decay_steps: 3.0
+  n_cascades_per_stratum: 14
+  n_gateway_outages: 8
+  gateway_outage_len_steps: [4, 14]
+  drift_recovery: 0.985
+  drift_to_minutes: 0.35
+  mnar_intercept: -4.2
+  mnar_slope: 0.055
+  closure_windows: [[1600, 1840], [2380, 2500]]
+  n_closed_edges: 6
+  closure_missing_prob: 0.45
+  shift_start_frac: 0.90
+  shift_scale: 1.12
+  shift_noise: 1.10
+  missing_rates: [0.0, 0.05, 0.10, 0.20, 0.30, 0.40]
+
+transactions:
+  n: 60000
+  seed: 42
+
+splits:
+  train_frac: 0.70
+  val_frac: 0.10
+  test_frac: 0.20       # chronological, no shuffling
+
+forecast:
+  window: 12            # 3 hours of history at 15 minute steps
+  horizon: 4            # 1 hour ahead
+  d_model: 48
+  n_heads: 4
+  n_layers: 2
+  mdn_components: 3
+  epochs: 25
+  lr: 0.002
+  batch_size: 64
+  conformal_alpha: 0.05
+
+fault_model:
+  window: 8
+  d_model: 40
+  n_heads: 4
+  n_layers: 2
+  epochs: 12
+  lr: 0.002
+  batch_size: 128
+  lambda_fault: 1.0
+  lambda_root: 0.5
+  lambda_mask: 1.0
+  lambda_forecast: 1.0
+  lambda_calibration: 0.2
+  lambda_stability: 0.1
+
+policy:
+  episodes: 40
+  alpha: 0.12
+  gamma: 0.85
+  epsilon: 0.15
+  lagrange_lr: 0.6
+  fairness_budgets: [0.30, 0.20, 0.15, 0.10, 0.07, 0.05, 0.03, 0.01]
+  review_cost_vnd: 2500
+  corroborate_cost_vnd: 400
+  false_accept_multiplier: 2.0
+  latency_budget_ms: 3.0
+
+# Stress regime: the benchmark revision described in Section VIII. Used only
+# when DYHGT_REGIME=stress, which writes to its own processed and results
+# directories so the primary cohort is untouched.
+stress:
+  target_pairwise_correlation: 0.55
+  relational_bias_range: [0.35, 0.95]
+  relational_offset_min: 0.18
+  telemetry_leak_prob: 0.18
+  valid_rate_core: 0.980
+  valid_rate_periphery: 0.880
+  fault_validity_drop: 0.10
+  false_accept_mult_core: 3.0
+  false_accept_mult_periphery: 1.2
